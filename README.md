@@ -30,3 +30,8 @@ Notes and testing code for working with the [USFC SpaceLab EPS2](https://github.
     * GND = GND = GND [don't forget]
 13. Run the MicroPython script in this repo (`eps2_i2c_obdh_emulator.py`). One method is [explained in DeflateAwning's MicroPython setup guide](https://gist.github.com/DeflateAwning/cfc26095d25390fcd3c619176c7bf23e). Thony is another option.
 14. Observe the MicroPython output: I2C scan succeeds, telemetry data is received.
+
+## Review of Features
+
+* The EPS does not appear to natively support channel on/off control.
+* The EPS does not appear to have per-channel overcurrent protection.
