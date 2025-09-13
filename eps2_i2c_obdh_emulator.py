@@ -15,7 +15,6 @@ SL_EPS2_REG_MAIN_POWER_BUS_VOLT_MV = 18  #   /**< Main power bus voltage in mV. 
 SL_EPS2_REG_DEVICE_ID = 48  # Device ID (0xEEE2).
 
 
-
 SL_EPS2_CRC8_INITIAL_VALUE = 0x00
 SL_EPS2_CRC8_POLYNOMIAL = 0x07
 
@@ -95,10 +94,10 @@ class EPS2:
         # Note: buf[0] is the register echoed back.
         val = (buf[1] << 24) | (buf[2] << 16) | (buf[3] << 8) | buf[4]
         return val
-    
+
     def get_reset_cause(self) -> int:
         return self.read_reg(SL_EPS2_REG_LAST_RESET_CAUSE)
-    
+
     def get_reset_count(self) -> int:
         return self.read_reg(SL_EPS2_REG_RESET_COUNTER)
 
@@ -132,7 +131,6 @@ i2c = I2C(
     sda=Pin(4, Pin.OPEN_DRAIN, Pin.PULL_UP),
     freq=100000,
 )
-
 
 
 def main():
@@ -172,5 +170,6 @@ def main():
     print("START: Fetch Main Power Bus Voltage")
     main_power_bus_voltage = eps.read_reg(SL_EPS2_REG_MAIN_POWER_BUS_VOLT_MV)
     print(f"Main Power Bus Voltage: {main_power_bus_voltage} mV")
+
 
 main()
